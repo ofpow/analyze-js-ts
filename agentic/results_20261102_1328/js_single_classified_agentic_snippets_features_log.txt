@@ -1,0 +1,44 @@
+685 snippets (javascript, single)
+tree-sitter parse errors: 395 (57.66%) - features are still extracted from the valid parts
+
+Snippets by highest ES version used:
+  none       158 (23.1%)
+  ES2015     307 (44.8%)
+  ES2016       1 (0.1%)
+  ES2017     103 (15.0%)
+  ES2018      17 (2.5%)
+  ES2019       6 (0.9%)
+  ES2020      81 (11.8%)
+  ES2021       1 (0.1%)
+  ES2022      10 (1.5%)
+  ES2024       1 (0.1%)
+
+Snippets by era:
+  ES2015-2016     308 (45.0%)
+  ES2017-2019     126 (18.4%)
+  ES2020+          93 (13.6%)
+  pre-ES2015      158 (23.1%)
+
+Content kind (non-'code' = probably not JS, mislabelled in the dataset):
+  code            685 (100.0%)
+
+Most imported modules:
+  react                     51
+  next                      27
+  path                      17
+  express                   14
+  fs                        13
+  lucide-react              12
+  jotai                     7
+  url                       6
+  vitest                    6
+  @tnyoffice/logger         6
+  node-fetch                5
+  dotenv                    5
+  framer-motion             4
+  react-router-dom          3
+  cors                      3
+
+Written: ./js_single_classified_agentic_snippets_features_long.csv
+         ./js_single_classified_agentic_snippets_snippets.csv
+         ./js_single_classified_agentic_snippets_feature_catalog.csv

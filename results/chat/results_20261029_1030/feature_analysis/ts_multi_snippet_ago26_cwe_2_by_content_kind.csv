@@ -1,0 +1,5 @@
+content_kind,n_scanned,semgrep_error_rate,n_analyzed,defect_rate,issues_per_kloc,median_loc
+code,3326,0.2579675285628382,2468,0.1859805510534846,3.7265418965231683,41.5
+html_like,31,0.967741935483871,1,0.0,0.0,112.0
+json,1,0.0,1,0.0,0.0,20.0
+shell_like,8,1.0,0,,,53.5

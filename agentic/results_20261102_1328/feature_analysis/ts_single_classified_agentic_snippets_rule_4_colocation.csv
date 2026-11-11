@@ -1,0 +1,15 @@
+target,feature,es_version,n_findings_in_snippets_with_feature,overlap_rate,start_on_flagged_lines_rate,expected_start_rate_by_chance,colocation_lift
+detect-object-injection,let_const,ES2015,15,0.8666666666666667,0.6,0.08745988200214941,6.860288240330057
+detect-object-injection,ts_as_cast,ts,5,0.2,0.2,0.03080332743747709,6.492805051855163
+detect-object-injection,destructuring,ES2015,10,0.1,0.1,0.016775271610785004,5.961155343422811
+detect-object-injection,arrow_function,ES2015,12,0.8333333333333334,0.16666666666666666,0.05831900381246908,2.8578448836780708
+detect-object-injection,es_modules,ES2015,14,1.0,0.0,0.06004150188852832,0.0
+detect-object-injection,for_of,ES2015,5,0.6,0.0,0.029565161341907654,0.0
+detect-object-injection,shorthand_property,ES2015,8,0.0,0.0,0.024512339924576437,0.0
+detect-object-injection,ts_generics,ts,13,0.0,0.0,0.03676654296072323,0.0
+detect-object-injection,ts_interface_type,ts,13,0.0,0.0,0.018475915188031242,0.0
+detect-object-injection,jsx,jsx,9,0.0,0.0,0.022948555241206044,0.0
+detect-object-injection,template_literal,ES2015,6,0.0,0.0,0.020931277865119186,0.0
+detect-object-injection,template_interpolation,ES2015,6,0.0,0.0,0.020931277865119186,0.0
+detect-object-injection,array_spread,ES2015,8,0.0,0.0,0.01254163253753264,0.0
+detect-object-injection,object_rest,ES2018,5,0.0,0.0,0.008133775941404676,0.0

@@ -1,0 +1,61 @@
+Semgrep files: 1 | scanned: 1570 | errors: 140 | findings (CWE, dedup): 332
+
+[1] Error bias - features over-represented in snippets Semgrep could not analyze (q<0.05):
+          feature es_version  n_with_feature  error_rate_with  error_rate_without  odds_ratio    q_bh
+await_in_fragment     ES2017              86            0.267              0.0788        4.31 4.5e-06
+  tagged_template     ES2015              14            0.357              0.0868        6.07  0.0229
+
+[2] By highest ES version used:
+max_es_version  n_scanned  semgrep_error_rate  n_analyzed  defect_rate  issues_per_kloc  median_loc
+          none        138                0.42          80       0.0625             3.42          10
+        ES2015        606              0.0627         568        0.137             5.87          17
+        ES2017        359              0.0752         332        0.108             2.43          31
+        ES2018         69              0.0145          68        0.397             4.51          82
+        ES2019         50                0.04          48        0.146             1.12         120
+        ES2020        211              0.0521         200        0.315             4.92          59
+        ES2021          4                   0           4         0.75             14.2          88
+        ES2022        133              0.0226         130        0.215             4.33          72
+
+[2b] By era:
+     es_era  n_scanned  semgrep_error_rate  n_analyzed  defect_rate  issues_per_kloc  median_loc
+ES2015-2016        606              0.0627         568        0.137             5.87          17
+ES2017-2019        478              0.0628         448        0.156             2.63        36.5
+    ES2020+        348              0.0402         334        0.281              4.8        63.5
+ pre-ES2015        138                0.42          80       0.0625             3.42          10
+
+[2c] By content kind (non-'code' snippets are likely not JS):
+content_kind  n_scanned  semgrep_error_rate  n_analyzed  defect_rate  issues_per_kloc  median_loc
+        code       1564               0.087        1428        0.173              4.2          27
+   html_like          4                0.75           1            0                0          50
+        json          1                   0           1            0                0          20
+  shell_like          1                   1           0          NaN              NaN          11
+
+[3] Strongest positive associations feature -> rule (q<0.05, OR>1):
+                                               target                feature es_version  n_both  odds_ratio  odds_ratio_adj_loc     q_bh
+javascript-crypto-rule-node_insecure_random_generator            math_random        api      42    2.36e+05                 NaN 2.54e-79
+                       node_insecure_random_generator            math_random        api      42    2.36e+05                 NaN 2.54e-79
+                       detect-non-literal-fs-filename        fs_dynamic_path        api       8    2.29e+03                 NaN 1.35e-14
+                       detect-non-literal-fs-filename              module:fs        api       8    1.92e+03                 NaN 3.24e-14
+                        react-dangerouslysetinnerhtml          local_storage        api       6         743                 NaN 2.55e-09
+                                            regex_dos     default_parameters     ES2015       6         403                 NaN 5.23e-08
+                       javascript-ssrf-rule-node_ssrf    http_request_client        api      14         193                 NaN 4.98e-11
+                                            regex_dos           array_spread     ES2015       6         192                 NaN 1.99e-06
+                        react-dangerouslysetinnerhtml           array_spread     ES2015       6         192                 NaN 1.99e-06
+                              detect-object-injection              module:d3        api      10         183                 NaN 8.04e-09
+                        react-dangerouslysetinnerhtml      optional_chaining     ES2020       6         103                 NaN 3.97e-05
+                       detect-non-literal-fs-filename      path_join_resolve        api       3        94.7                 NaN 0.000307
+       javascript-database-rule-node_nosqli_injection        module:mongoose        api       3        87.8                 NaN 0.000375
+                        react-dangerouslysetinnerhtml    http_request_client        api       6        82.7                 NaN 0.000102
+                                  unsafe-formatstring template_interpolation     ES2015      15        78.6                 NaN 2.65e-07
+       javascript-database-rule-node_nosqli_injection    function_expression     legacy       3        75.6                 NaN 0.000548
+                                  unsafe-formatstring       template_literal     ES2015      15        72.7                 NaN 5.18e-07
+                       javascript-ssrf-rule-node_ssrf         async_function     ES2017      14        72.1                 NaN 8.33e-07
+                        react-dangerouslysetinnerhtml           module:react        api       6        68.1                 NaN 0.000244
+       javascript-database-rule-node_nosqli_injection                    jwt        api       2        67.7                 NaN  0.00799
+       javascript-database-rule-node_nosqli_injection module:@nestjs/typeorm        api       2        67.7                 NaN  0.00799
+                       javascript-ssrf-rule-node_ssrf                  await     ES2017      14        64.1                 NaN 2.31e-06
+                                            regex_dos     shorthand_property     ES2015       6        63.7                 NaN 0.000307
+                        react-dangerouslysetinnerhtml     shorthand_property     ES2015       6        63.7                 NaN 0.000307
+                        react-dangerouslysetinnerhtml      ts_interface_type         ts       6        45.7                 NaN  0.00125
+
+All tables written to feature_analysis/

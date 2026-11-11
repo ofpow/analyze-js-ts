@@ -1,0 +1,40 @@
+Semgrep files: 1 | scanned: 1140 | errors: 730 | findings (CWE, dedup): 112
+
+[1] Error bias - features over-represented in snippets Semgrep could not analyze (q<0.05):
+        feature es_version  n_with_feature  error_rate_with  error_rate_without  odds_ratio     q_bh
+tagged_template     ES2015              30                1               0.631        35.7 3.68e-06
+
+[2] By highest ES version used:
+max_es_version  n_scanned  semgrep_error_rate  n_analyzed  defect_rate  issues_per_kloc  median_loc
+          none        444               0.775         100         0.02             1.41          12
+        ES2015        457               0.573         195        0.221             15.4          12
+        ES2016          5                 0.8           1            1             6.41           8
+        ES2017        138               0.435          78        0.205             13.9          14
+        ES2018         19               0.263          14        0.357             4.12          27
+        ES2019          6               0.667           2            0                0        29.5
+        ES2020         48               0.667          16        0.188             2.98          12
+        ES2021          8                   1           0          NaN              NaN          38
+        ES2022         11               0.636           4          0.5             5.08          16
+        ES2024          4                   1           0          NaN              NaN          28
+
+[2b] By era:
+     es_era  n_scanned  semgrep_error_rate  n_analyzed  defect_rate  issues_per_kloc  median_loc
+ES2015-2016        462               0.576         196        0.224             15.1          12
+ES2017-2019        163               0.423          94        0.223             9.07          15
+    ES2020+         71               0.718          20         0.25             3.57          13
+ pre-ES2015        444               0.775         100         0.02             1.41          12
+
+[2c] By content kind (non-'code' snippets are likely not JS):
+content_kind  n_scanned  semgrep_error_rate  n_analyzed  defect_rate  issues_per_kloc  median_loc
+        code       1138                0.64         410        0.176              9.9          12
+  shell_like          2                   1           0          NaN              NaN          16
+
+[3] Strongest positive associations feature -> rule (q<0.05, OR>1):
+                                               target        feature es_version  n_both  odds_ratio  odds_ratio_adj_loc     q_bh
+                       node_insecure_random_generator      let_const     ES2015      12        16.6                 NaN   0.0392
+javascript-crypto-rule-node_insecure_random_generator      let_const     ES2015      12        16.6                 NaN   0.0392
+                              detect-object-injection arrow_function     ES2015      41          14                9.22 8.94e-10
+                              detect-object-injection      let_const     ES2015      43        13.1                8.97 1.09e-06
+                              detect-object-injection         for_of     ES2015       8        5.92                4.91   0.0116
+
+All tables written to feature_analysis/

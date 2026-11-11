@@ -1,0 +1,78 @@
+Semgrep files: 1 | scanned: 8825 | errors: 1844 | findings (CWE, dedup): 2468
+
+[1] Error bias - features over-represented in snippets Semgrep could not analyze (q<0.05):
+               feature es_version  n_with_feature  error_rate_with  error_rate_without  odds_ratio     q_bh
+             module:d3        api              90              0.9               0.202        33.9 9.74e-44
+       tagged_template     ES2015              72            0.861               0.204        23.3 5.86e-31
+    shorthand_property     ES2015            1195              0.3               0.195        1.78 2.21e-14
+                   jsx        jsx            2117            0.264               0.192        1.51 4.91e-11
+        loose_equality     legacy             127            0.433               0.206        2.96 2.32e-07
+      template_literal     ES2015            2890            0.235               0.196        1.26 0.000356
+         module:dotenv        api             122            0.369               0.207        2.25 0.000425
+           module:path        api             178            0.337               0.206        1.96   0.0005
+       top_level_await     ES2022              61            0.426               0.207        2.85 0.000905
+           module:cors        api             103            0.369               0.207        2.25  0.00155
+   function_expression     legacy            1054             0.25               0.203        1.31   0.0032
+template_interpolation     ES2015            2702            0.231               0.199         1.2  0.00578
+             module:pg        api              24              0.5               0.208         3.8   0.0076
+     path_join_resolve        api             151            0.318               0.207        1.79  0.00812
+          module:axios        api             321             0.28               0.206         1.5  0.00964
+
+[2] By highest ES version used:
+max_es_version  n_scanned  semgrep_error_rate  n_analyzed  defect_rate  issues_per_kloc  median_loc
+          none        952               0.455         519       0.0462             1.91        22.5
+        ES2015       4719               0.165        3939        0.231             7.94          30
+        ES2016         12                 0.5           6          0.5             13.2          58
+        ES2017       1809               0.185        1474        0.314             8.83          43
+        ES2018        354               0.181         290        0.341             6.56          66
+        ES2019         41               0.268          30          0.4             5.73          53
+        ES2020        733               0.217         574        0.378             6.34          64
+        ES2021         31               0.129          27         0.63               14          69
+        ES2022        148               0.318         101        0.228             5.71        54.5
+        ES2023         24               0.167          20          0.6             8.31          62
+        ES2024          1                   1           0          NaN              NaN         609
+        ES2025          1                   0           1            1             17.9          56
+
+[2b] By era:
+     es_era  n_scanned  semgrep_error_rate  n_analyzed  defect_rate  issues_per_kloc  median_loc
+ES2015-2016       4731               0.166        3945        0.231             7.96          30
+ES2017-2019       2204               0.186        1794         0.32             8.29          46
+    ES2020+        938               0.229         723        0.373             6.59          62
+ pre-ES2015        952               0.455         519       0.0462             1.91        22.5
+
+[2c] By content kind (non-'code' snippets are likely not JS):
+content_kind  n_scanned  semgrep_error_rate  n_analyzed  defect_rate  issues_per_kloc  median_loc
+        code       8671               0.196        6974        0.255             7.58          34
+   html_like        145               0.959           6            0                0          88
+        json          1                   0           1            0                0          10
+  shell_like          8                   1           0          NaN              NaN        70.5
+
+[3] Strongest positive associations feature -> rule (q<0.05, OR>1):
+                                               target                feature es_version  n_both  odds_ratio  odds_ratio_adj_loc      q_bh
+                       node_insecure_random_generator            math_random        api     200    5.44e+06                 NaN         0
+javascript-crypto-rule-node_insecure_random_generator            math_random        api     200    5.44e+06                 NaN         0
+                            detect-non-literal-regexp regexp_constructor_dyn        api      33     3.1e+05                 NaN  1.21e-86
+                       detect-non-literal-fs-filename        fs_dynamic_path        api      84    2.44e+04                 NaN  2.8e-158
+                 express-check-csurf-middleware-usage         module:express        api     187    1.86e+04                 NaN  5.2e-277
+                                    using-http-server            module:http        api      27    1.77e+04                 NaN  7.19e-61
+                       detect-non-literal-fs-filename              module:fs        api      84    1.14e+04                 NaN 1.75e-140
+                 express-check-csurf-middleware-usage            express_app        api     187    6.94e+03                 NaN 1.38e-221
+                                 hardcoded-jwt-secret    module:jsonwebtoken        api      16    5.79e+03                 NaN  1.55e-33
+                                 hardcoded_jwt_secret    module:jsonwebtoken        api      16    5.79e+03                 NaN  1.55e-33
+                                 hardcoded-jwt-secret                    jwt        api      16    4.11e+03                 NaN  1.39e-31
+                                 hardcoded_jwt_secret                    jwt        api      16    4.11e+03                 NaN  1.39e-31
+                 express-check-csurf-middleware-usage       commonjs_require     legacy     187    3.89e+03                 NaN 4.95e-185
+                                         http-request            module:http        api      10    3.78e+03                 NaN  3.95e-21
+                 express-check-csurf-middleware-usage     module:body-parser        api      34    3.05e+03                 NaN  2.52e-53
+                          path-join-resolve-traversal      path_join_resolve        api      18    2.98e+03                 NaN  1.69e-32
+                          path-join-resolve-traversal            module:path        api      18    2.53e+03                 NaN   2.1e-31
+                                node_nosqli_injection      user_input_source        api      56    2.02e+03                 NaN  3.62e-68
+                                         node_api_key    secret_like_literal        api      20    1.96e+03                 NaN  4.27e-32
+                       javascript-ssrf-rule-node_ssrf    http_request_client        api     117    1.55e+03                 NaN  1.86e-98
+                              bypass-tls-verification           module:https        api       9    1.28e+03            1.82e+03  4.51e-20
+                javascript-dos-rule-layer7_object_dos      user_input_source        api      36    1.24e+03                 NaN   4.4e-43
+                                direct-response-write      user_input_source        api      20         666                 NaN  1.42e-23
+                                        node_password    secret_like_literal        api      19         618                 864  3.39e-29
+                              v3-potentially-bad-cors            module:http        api       9         476                 496  1.14e-16
+
+All tables written to feature_analysis/

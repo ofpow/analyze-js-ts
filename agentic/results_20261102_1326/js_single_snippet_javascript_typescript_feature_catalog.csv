@@ -1,0 +1,119 @@
+feature,es_version,category,detection,description,n_snippets
+var_declaration,legacy,legacy,ast,var declarations,29
+arguments_object,legacy,legacy,ast,use of the implicit 'arguments' object,0
+loose_equality,legacy,legacy,ast,== / != comparisons,11
+commonjs_require,legacy,legacy,ast,require(...) calls,26
+commonjs_exports,legacy,legacy,ast,module.exports / exports.x,24
+prototype_manipulation,legacy,legacy,ast,X.prototype.y = ... / X.prototype = ...,0
+function_expression,legacy,legacy,ast,anonymous function expressions (pre-arrow callbacks),31
+with_statement,legacy,legacy,ast,with (...) statements,0
+let_const,ES2015,syntax,ast,let / const declarations,540
+arrow_function,ES2015,syntax,ast,arrow functions,287
+class,ES2015,syntax,ast,class declarations/expressions,8
+template_literal,ES2015,syntax,ast,template strings,179
+template_interpolation,ES2015,syntax,ast,template strings with ${...},140
+tagged_template,ES2015,syntax,ast,tagged templates (tag`...`),30
+destructuring,ES2015,syntax,ast,object/array destructuring patterns,98
+array_spread,ES2015,syntax,ast,spread in arrays and calls,24
+rest_parameters,ES2015,syntax,ast,rest parameters / array rest,2
+default_parameters,ES2015,syntax,ast,default parameter values,16
+for_of,ES2015,syntax,ast,for...of loops,40
+generator,ES2015,syntax,ast,generator functions / yield,0
+es_modules,ES2015,syntax,ast,import / export statements,67
+shorthand_property,ES2015,syntax,ast,shorthand properties / methods,65
+computed_property,ES2015,syntax,ast,computed property names,5
+new_target,ES2015,syntax,ast,new.target,0
+regex_flag_u_y,ES2015,syntax,ast,regex flags u / y,6
+promise,ES2015,builtin,name,Promise constructor / static methods,14
+map_set_symbol,ES2015,builtin,name,"Map, Set, WeakMap, WeakSet, Symbol, Proxy, Reflect",20
+exponent_operator,ES2016,syntax,ast,** and **=,5
+async_function,ES2017,syntax,ast,async functions / arrows / methods,69
+await,ES2017,syntax,ast,await expressions,150
+object_entries_values,ES2017,builtin,name,Object.entries / Object.values / getOwnPropertyDescriptors,8
+string_pad,ES2017,builtin,name,padStart / padEnd,2
+object_spread,ES2018,syntax,ast,spread in object literals,19
+object_rest,ES2018,syntax,ast,rest in object patterns,0
+for_await_of,ES2018,syntax,ast,for await...of,0
+regex_named_groups,ES2018,syntax,ast,regex (?<name>...),0
+regex_lookbehind,ES2018,syntax,ast,regex (?<=...) / (?<!...),0
+regex_flag_s,ES2018,syntax,ast,regex dotAll flag s,7
+promise_finally,ES2018,builtin,name,.finally(...),0
+optional_catch_binding,ES2019,syntax,ast,catch { } without parameter,6
+array_flat,ES2019,builtin,name,.flat() / .flatMap(),0
+object_from_entries,ES2019,builtin,name,Object.fromEntries,0
+string_trim_start_end,ES2019,builtin,name,trimStart / trimEnd,0
+optional_chaining,ES2020,syntax,ast,?.,38
+nullish_coalescing,ES2020,syntax,ast,??,3
+bigint,ES2020,syntax,ast,BigInt literals (1n) / BigInt(),0
+dynamic_import,ES2020,syntax,ast,import(...),8
+import_meta,ES2020,syntax,ast,import.meta,2
+global_this,ES2020,builtin,name,globalThis,0
+promise_all_settled,ES2020,builtin,name,Promise.allSettled,0
+string_match_all,ES2020,builtin,name,.matchAll(...),0
+logical_assignment,ES2021,syntax,ast,??= ||= &&=,0
+numeric_separator,ES2021,syntax,ast,1_000_000,9
+string_replace_all,ES2021,builtin,name,.replaceAll(...),0
+promise_any,ES2021,builtin,name,Promise.any,0
+weakref,ES2021,builtin,name,WeakRef / FinalizationRegistry,0
+class_fields,ES2022,syntax,ast,public class fields,1
+private_members,ES2022,syntax,ast,#private fields/methods,0
+private_in_check,ES2022,syntax,ast,#x in obj,1
+class_static_block,ES2022,syntax,ast,static { } blocks,0
+top_level_await,ES2022,syntax,ast,"await outside any function, in a snippet that is an ES module (import/export)",4
+await_in_fragment,ES2017,syntax,ast,await outside any function in a non-module snippet: most likely a fragment of an async function body,87
+regex_flag_d,ES2022,syntax,ast,regex indices flag d,7
+array_at,ES2022,builtin,name,.at(...),0
+object_has_own,ES2022,builtin,name,Object.hasOwn,0
+error_cause,ES2022,builtin,ast,"new Error(msg, { cause })",0
+hashbang,ES2023,syntax,ast,#! first line,0
+array_find_last,ES2023,builtin,name,.findLast / .findLastIndex,0
+array_change_by_copy,ES2023,builtin,name,.toSorted / .toReversed / .toSpliced,0
+group_by,ES2024,builtin,name,Object.groupBy / Map.groupBy,0
+promise_with_resolvers,ES2024,builtin,name,Promise.withResolvers,0
+regex_flag_v,ES2024,syntax,ast,regex unicodeSets flag v,4
+string_well_formed,ES2024,builtin,name,isWellFormed / toWellFormed,0
+import_attributes,ES2025,syntax,ast,import ... with { type: 'json' },0
+regex_modifiers,ES2025,syntax,ast,regex (?i:...) modifiers,0
+set_methods,ES2025,builtin,name,.union / .intersection / .difference / ...,0
+iterator_helpers,ES2025,builtin,name,Iterator.from(...),0
+promise_try,ES2025,builtin,name,Promise.try,0
+regexp_escape,ES2025,builtin,name,RegExp.escape,0
+ts_any,ts,ts,ast,explicit any type,0
+ts_as_cast,ts,ts,ast,x as T,0
+ts_double_cast,ts,ts,ast,x as unknown as T / as any as T,0
+ts_angle_assertion,ts,ts,ast,<T>x,0
+ts_non_null,ts,ts,ast,x!,0
+ts_satisfies,ts,ts,ast,satisfies (TS 4.9),0
+ts_enum,ts,ts,ast,enum declarations,0
+ts_decorator,ts,ts,ast,@decorators,0
+ts_interface_type,ts,ts,ast,interface / type alias,0
+ts_generics,ts,ts,ast,type parameters / type arguments,0
+ts_ignore_comment,ts,ts,ast,// @ts-ignore / @ts-expect-error / @ts-nocheck,0
+jsx,jsx,jsx,ast,JSX elements,53
+eval_call,api,api,ast,eval(...),0
+function_constructor,api,api,ast,new Function(...) / Function(...),0
+timer_with_string,api,api,ast,setTimeout/setInterval with string or template argument,0
+child_process_exec,api,api,name,exec/execSync/spawn/execFile/fork calls,1
+vm_module,api,api,name,vm.runIn* / new vm.Script,0
+fs_dynamic_path,api,api,name,fs.* call whose first argument is not a plain string,34
+path_join_resolve,api,api,name,path.join / path.resolve,21
+http_request_client,api,api,name,fetch / axios / http(s).request|get / XMLHttpRequest / got / request,27
+http_url_literal,api,api,ast,string literal starting with http://,2
+math_random,api,api,name,Math.random(),12
+crypto_secure_random,api,api,name,crypto.randomBytes / randomUUID / getRandomValues / randomInt,0
+weak_hash_literal,api,api,ast,'md5' / 'sha1' / 'des' / 'rc4' string literals,0
+dom_html_sink,api,api,name,"innerHTML / outerHTML assignment, insertAdjacentHTML, document.write",9
+react_dangerous_html,api,api,ast,dangerouslySetInnerHTML,0
+sql_in_template,api,api,ast,SQL keywords in an interpolated template string,2
+sql_in_concat,api,api,ast,SQL keywords in a string concatenation,0
+express_app,api,api,name,express() / app|router.get|post|put|delete|use,12
+user_input_source,api,api,name,req.query / req.params / req.body / req.headers / req.cookies,6
+regexp_constructor_dyn,api,api,ast,new RegExp(non-literal),2
+json_parse,api,api,name,JSON.parse,17
+process_env,api,api,name,process.env,34
+secret_like_literal,api,api,ast,string assigned to a name like password/secret/token/api_key,9
+local_storage,api,api,name,localStorage / sessionStorage,9
+post_message,api,api,name,postMessage / message event listener,0
+location_assign,api,api,name,window.location / location.href assignment,1
+jwt,api,api,name,jwt.sign / jwt.verify / jwt.decode,0
+cors_wildcard,api,api,ast,'*' as Access-Control-Allow-Origin or cors origin,4

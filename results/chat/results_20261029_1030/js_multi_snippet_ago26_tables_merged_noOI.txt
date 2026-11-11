@@ -1,0 +1,25 @@
+j
+excluded rules ['detect-object-injection']: 3571 raw findings removed
+merged same-location findings: 1543 -> 1286
+scanned: 8825 (100%)
+clean: 5969 (67.64%)
+defective: 1012 (11.47%)
+errors: 1844 (20.90%)
+issues: 1286
+
+Final Unified CWE Set (without duplicates): 33
+
+Top 10 CWEs by occurrence (across all severities):
+ 1. CWE-327: 200
+ 2. CWE-338: 200
+ 3. CWE-352: Cross-Site Request Forgery (CSRF): 188
+ 4. CWE-798: 134
+ 5. CWE-22: 128
+ 6. CWE-918: 119
+ 7. CWE-319: Cleartext Transmission of Sensitive Information: 78
+ 8. CWE-943: 78
+ 9. CWE-134: Use of Externally-Controlled Format String: 77
+10. CWE-79: 65
+INFO 266
+ERROR 317
+WARNING 703

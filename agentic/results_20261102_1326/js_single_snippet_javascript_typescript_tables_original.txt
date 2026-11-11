@@ -1,0 +1,23 @@
+j
+scanned: 1140 (100%)
+clean: 338 (29.65%)
+defective: 72 (6.32%)
+errors: 730 (64.04%)
+issues: 115
+
+Final Unified CWE Set (without duplicates): 18
+
+Top 10 CWEs by occurrence (across all severities):
+ 1. CWE-94: IMPROPER CONTROL OF GENERATION OF CODE ('CODE INJECTION'): 45
+ 2. CWE-327: 12
+ 3. CWE-338: 12
+ 4. CWE-22: 10
+ 5. CWE-352: Cross-Site Request Forgery (CSRF): 6
+ 6. CWE-798: Use of Hard-coded Credentials: 6
+ 7. CWE-319: CLEARTEXT TRANSMISSION OF SENSITIVE INFORMATION: 5
+ 8. CWE-918: 3
+ 9. CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting'): 3
+10. CWE-23: 2
+ERROR 13
+INFO 6
+WARNING 96

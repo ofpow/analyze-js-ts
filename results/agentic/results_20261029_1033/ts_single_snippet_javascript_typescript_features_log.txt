@@ -1,0 +1,45 @@
+966 snippets (typescript, single)
+tree-sitter parse errors: 405 (41.93%) - features are still extracted from the valid parts
+
+Snippets by highest ES version used:
+  none       275 (28.5%)
+  ES2015     349 (36.1%)
+  ES2016       2 (0.2%)
+  ES2017      98 (10.1%)
+  ES2018      39 (4.0%)
+  ES2019       9 (0.9%)
+  ES2020     141 (14.6%)
+  ES2021       2 (0.2%)
+  ES2022      30 (3.1%)
+  ES2023      20 (2.1%)
+  ES2024       1 (0.1%)
+
+Snippets by era:
+  ES2015-2016     351 (36.3%)
+  ES2017-2019     146 (15.1%)
+  ES2020+         194 (20.1%)
+  pre-ES2015      275 (28.5%)
+
+Content kind (non-'code' = probably not JS, mislabelled in the dataset):
+  code            966 (100.0%)
+
+Most imported modules:
+  react                     95
+  next                      36
+  lucide-react              23
+  vitest                    19
+  path                      18
+  url                       14
+  obsidian                  11
+  fs                        11
+  express                   9
+  child_process             8
+  jotai                     8
+  next-intl                 6
+  @obsidian-magic/core      5
+  url-import                5
+  framer-motion             5
+
+Written: ./ts_single_snippet_javascript_typescript_features_long.csv
+         ./ts_single_snippet_javascript_typescript_snippets.csv
+         ./ts_single_snippet_javascript_typescript_feature_catalog.csv

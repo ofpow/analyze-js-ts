@@ -1,0 +1,49 @@
+8825 snippets (javascript, multi)
+tree-sitter parse errors: 2208 (25.02%) - features are still extracted from the valid parts
+
+Snippets by highest ES version used:
+  none       952 (10.8%)
+  ES2015    4719 (53.5%)
+  ES2016      12 (0.1%)
+  ES2017    1809 (20.5%)
+  ES2018     354 (4.0%)
+  ES2019      41 (0.5%)
+  ES2020     733 (8.3%)
+  ES2021      31 (0.4%)
+  ES2022     148 (1.7%)
+  ES2023      24 (0.3%)
+  ES2024       1 (0.0%)
+  ES2025       1 (0.0%)
+
+Snippets by era:
+  ES2015-2016    4731 (53.6%)
+  ES2017-2019    2204 (25.0%)
+  ES2020+         938 (10.6%)
+  pre-ES2015      952 (10.8%)
+
+Content kind (non-'code' = probably not JS, mislabelled in the dataset):
+  code           8671 (98.3%)
+  html_like       145 (1.6%)
+  shell_like        8 (0.1%)
+  json              1 (0.0%)
+
+Most imported modules:
+  react                     1245
+  express                   434
+  axios                     321
+  react-router-dom          320
+  fs                        253
+  path                      178
+  mongoose                  122
+  dotenv                    122
+  react-native              110
+  cors                      103
+  d3                        90
+  react-dom                 70
+  jsonwebtoken              60
+  http                      56
+  body-parser               51
+
+Written: ./js_multi_snippet_ago26_features_long.csv
+         ./js_multi_snippet_ago26_snippets.csv
+         ./js_multi_snippet_ago26_feature_catalog.csv

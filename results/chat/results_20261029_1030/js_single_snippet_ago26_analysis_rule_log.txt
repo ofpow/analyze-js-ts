@@ -1,0 +1,69 @@
+Semgrep files: 1 | scanned: 4756 | errors: 347 | findings (CWE, dedup): 1421
+
+[1] Error bias - features over-represented in snippets Semgrep could not analyze (q<0.05):
+            feature es_version  n_with_feature  error_rate_with  error_rate_without  odds_ratio     q_bh
+          module:d3        api              89            0.899              0.0572         139 2.89e-82
+    tagged_template     ES2015              42            0.786              0.0666        49.3 4.02e-29
+   commonjs_require     legacy             491            0.149              0.0642        2.55 9.61e-09
+  await_in_fragment     ES2017             150             0.22              0.0682        3.89 4.47e-08
+     loose_equality     legacy              68            0.279                0.07        5.23 1.19e-06
+    top_level_await     ES2022              20              0.4              0.0716        8.81 0.000187
+function_expression     legacy             526             0.11              0.0683         1.7    0.003
+   template_literal     ES2015            1486           0.0902              0.0651        1.42  0.00756
+ shorthand_property     ES2015             474            0.105              0.0694        1.59   0.0178
+
+[2] By highest ES version used:
+max_es_version  n_scanned  semgrep_error_rate  n_analyzed  defect_rate  issues_per_kloc  median_loc
+          none        536               0.224         416       0.0409             1.74          12
+        ES2015       2684              0.0533        2541         0.22             8.52          22
+        ES2016          5                 0.4           3        0.667             24.1          19
+        ES2017        915               0.047         872        0.266             7.84          33
+        ES2018        167              0.0719         155        0.361             7.21          58
+        ES2019         16               0.125          14        0.143             3.73          65
+        ES2020        365              0.0411         350        0.366              5.8          51
+        ES2021         14                   0          14        0.714             14.8        74.5
+        ES2022         40                0.25          30        0.267             9.87        46.5
+        ES2023         14                   0          14        0.571             7.17        64.5
+
+[2b] By era:
+     es_era  n_scanned  semgrep_error_rate  n_analyzed  defect_rate  issues_per_kloc  median_loc
+ES2015-2016       2689              0.0539        2544        0.221             8.53          22
+ES2017-2019       1098              0.0519        1041        0.279             7.65          36
+    ES2020+        433              0.0577         408        0.377              6.3          54
+ pre-ES2015        536               0.224         416       0.0409             1.74          12
+
+[2c] By content kind (non-'code' snippets are likely not JS):
+content_kind  n_scanned  semgrep_error_rate  n_analyzed  defect_rate  issues_per_kloc  median_loc
+        code       4736              0.0695        4407        0.232             7.51          25
+   html_like         19               0.947           1            0                0          66
+        json          1                   0           1            0                0          10
+
+[3] Strongest positive associations feature -> rule (q<0.05, OR>1):
+                                               target                feature es_version  n_both  odds_ratio  odds_ratio_adj_loc      q_bh
+                       node_insecure_random_generator            math_random        api     133    2.28e+06                 NaN 1.47e-255
+javascript-crypto-rule-node_insecure_random_generator            math_random        api     133    2.28e+06                 NaN 1.47e-255
+                       detect-non-literal-fs-filename        fs_dynamic_path        api      67    2.48e+04                 NaN 2.12e-126
+                 express-check-csurf-middleware-usage         module:express        api      92    1.18e+04                 NaN 2.05e-145
+                       detect-non-literal-fs-filename              module:fs        api      67    9.25e+03                 NaN 3.88e-110
+                                    using-http-server            module:http        api      10    6.82e+03                 NaN  1.05e-22
+                 express-check-csurf-middleware-usage            express_app        api      92    4.61e+03                 NaN 2.28e-119
+                 express-check-csurf-middleware-usage       commonjs_require     legacy      92    2.26e+03                 NaN  7.13e-97
+                                         node_api_key    secret_like_literal        api      16    1.97e+03                 NaN  1.26e-26
+                                        node_password    secret_like_literal        api      12    1.41e+03                 NaN  9.77e-20
+                                node_nosqli_injection      user_input_source        api      24    1.25e+03                 NaN  3.78e-32
+       javascript-database-rule-node_nosqli_injection            object_rest     ES2018       9    1.04e+03                 744  1.01e-18
+                       javascript-ssrf-rule-node_ssrf    http_request_client        api      64         987                 NaN  4.51e-57
+                javascript-dos-rule-layer7_object_dos      user_input_source        api      19         965                 NaN  3.06e-25
+                javascript-dos-rule-layer7_object_dos            express_app        api      19         676                 NaN  1.32e-22
+                                          express_xss         module:express        api      10         601                 NaN  8.49e-14
+                           mongodb-insecure-transport        module:mongoose        api      10         460                 621  7.99e-18
+                              bypass-tls-verification         module:cheerio        api       6         409                 433  2.71e-11
+       javascript-database-rule-node_nosqli_injection          module:bcrypt        api       7         386                 271   6.1e-13
+       javascript-database-rule-node_nosqli_injection    module:jsonwebtoken        api       7         386                 239   6.1e-13
+                       detect-non-literal-fs-filename      path_join_resolve        api      40         283                 290  3.34e-61
+       javascript-database-rule-node_nosqli_injection                    jwt        api       7         278                 212  4.03e-12
+                                  unsafe-formatstring template_interpolation     ES2015      40         209                 NaN  6.26e-21
+                       detect-non-literal-fs-filename            module:path        api      40         208                 217  4.56e-58
+                                    using-http-server       commonjs_require     legacy      10         205                 NaN  9.61e-10
+
+All tables written to feature_analysis/

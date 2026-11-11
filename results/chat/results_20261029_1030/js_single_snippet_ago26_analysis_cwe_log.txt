@@ -1,0 +1,69 @@
+Semgrep files: 1 | scanned: 4756 | errors: 347 | findings (CWE, dedup): 1421
+
+[1] Error bias - features over-represented in snippets Semgrep could not analyze (q<0.05):
+            feature es_version  n_with_feature  error_rate_with  error_rate_without  odds_ratio     q_bh
+          module:d3        api              89            0.899              0.0572         139 2.89e-82
+    tagged_template     ES2015              42            0.786              0.0666        49.3 4.02e-29
+   commonjs_require     legacy             491            0.149              0.0642        2.55 9.61e-09
+  await_in_fragment     ES2017             150             0.22              0.0682        3.89 4.47e-08
+     loose_equality     legacy              68            0.279                0.07        5.23 1.19e-06
+    top_level_await     ES2022              20              0.4              0.0716        8.81 0.000187
+function_expression     legacy             526             0.11              0.0683         1.7    0.003
+   template_literal     ES2015            1486           0.0902              0.0651        1.42  0.00756
+ shorthand_property     ES2015             474            0.105              0.0694        1.59   0.0178
+
+[2] By highest ES version used:
+max_es_version  n_scanned  semgrep_error_rate  n_analyzed  defect_rate  issues_per_kloc  median_loc
+          none        536               0.224         416       0.0409             1.74          12
+        ES2015       2684              0.0533        2541         0.22             8.52          22
+        ES2016          5                 0.4           3        0.667             24.1          19
+        ES2017        915               0.047         872        0.266             7.84          33
+        ES2018        167              0.0719         155        0.361             7.21          58
+        ES2019         16               0.125          14        0.143             3.73          65
+        ES2020        365              0.0411         350        0.366              5.8          51
+        ES2021         14                   0          14        0.714             14.8        74.5
+        ES2022         40                0.25          30        0.267             9.87        46.5
+        ES2023         14                   0          14        0.571             7.17        64.5
+
+[2b] By era:
+     es_era  n_scanned  semgrep_error_rate  n_analyzed  defect_rate  issues_per_kloc  median_loc
+ES2015-2016       2689              0.0539        2544        0.221             8.53          22
+ES2017-2019       1098              0.0519        1041        0.279             7.65          36
+    ES2020+        433              0.0577         408        0.377              6.3          54
+ pre-ES2015        536               0.224         416       0.0409             1.74          12
+
+[2c] By content kind (non-'code' snippets are likely not JS):
+content_kind  n_scanned  semgrep_error_rate  n_analyzed  defect_rate  issues_per_kloc  median_loc
+        code       4736              0.0695        4407        0.232             7.51          25
+   html_like         19               0.947           1            0                0          66
+        json          1                   0           1            0                0          10
+
+[3] Strongest positive associations feature -> cwe (q<0.05, OR>1):
+ target                feature es_version  n_both  odds_ratio  odds_ratio_adj_loc      q_bh
+CWE-327            math_random        api     133    2.28e+06                 NaN 1.18e-255
+CWE-338            math_random        api     133    2.28e+06                 NaN 1.18e-255
+ CWE-22        fs_dynamic_path        api      75    4.21e+04                 NaN 3.56e-145
+ CWE-22              module:fs        api      75    1.19e+04                 NaN 4.05e-125
+CWE-352         module:express        api      92    3.94e+03            6.67e+03 1.13e-143
+CWE-352            express_app        api      92    1.54e+03             2.3e+03 1.36e-117
+CWE-918    http_request_client        api      64         987                 NaN  3.61e-57
+CWE-400      user_input_source        api      19         965                 NaN  2.32e-25
+CWE-352       commonjs_require     legacy      92         754            1.19e+03  4.91e-95
+CWE-400            express_app        api      19         676                 NaN  9.58e-23
+ CWE-22      path_join_resolve        api      48         526                 607  1.22e-78
+CWE-295        module:mongoose        api      10         460                 621  4.88e-18
+CWE-943      user_input_source        api      34         374                 585  7.73e-44
+ CWE-22            module:path        api      48         338                 383  3.06e-74
+CWE-319            module:http        api      16         325                 360  9.94e-27
+CWE-943         async_function     ES2017      36         278                 NaN  2.45e-23
+CWE-943                  await     ES2017      36         253                 NaN  3.08e-22
+CWE-943          destructuring     ES2015      36         246                 NaN  5.56e-22
+CWE-943    module:jsonwebtoken        api      12         212                 150  2.03e-19
+CWE-134 template_interpolation     ES2015      40         209                 NaN  3.94e-21
+CWE-943                    jwt        api      14         194                 168  5.27e-22
+CWE-134       template_literal     ES2015      40         189                 NaN  6.05e-20
+CWE-943          module:bcrypt        api      11         171                 124  3.32e-17
+CWE-943            object_rest     ES2018      10         165                 103  1.38e-15
+CWE-352            module:cors        api      21         150                 166  1.55e-28
+
+All tables written to feature_analysis/
