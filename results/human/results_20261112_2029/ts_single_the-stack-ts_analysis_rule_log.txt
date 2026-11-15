@@ -1,0 +1,60 @@
+Semgrep files: 1 | scanned: 1000 | errors: 31 | findings (CWE, dedup): 183
+
+[1] Error bias - features over-represented in snippets Semgrep could not analyze (q<0.05):
+  none
+
+[2] By highest ES version used:
+max_es_version  n_scanned  semgrep_error_rate  n_analyzed  defect_rate  issues_per_kloc  median_loc
+          none         40                0.55          18            0                0    2.92e+03
+        ES2015        527             0.00569         524       0.0859             1.21          24
+        ES2016          1                   0           1            1            0.638    1.57e+03
+        ES2017         77                   0          77        0.169              2.5          45
+        ES2018         42              0.0476          40        0.275             2.97          81
+        ES2019          5                   0           5          0.2              6.4          90
+        ES2020         61              0.0164          60         0.35             2.97         107
+        ES2021          1                   0           1            0                0          44
+        ES2022        242              0.0124         239        0.222             1.03          69
+        ES2023          3                   0           3            0                0          57
+        ES2025          1                   0           1            1             15.5         129
+
+[2b] By era:
+     es_era  n_scanned  semgrep_error_rate  n_analyzed  defect_rate  issues_per_kloc  median_loc
+ES2015-2016        528             0.00568         525       0.0876             1.19          24
+ES2017-2019        124              0.0161         122        0.205             2.85          51
+    ES2020+        308               0.013         304        0.247             1.28          77
+ pre-ES2015         40                0.55          18            0                0    2.92e+03
+
+[2c] By content kind (non-'code' snippets are likely not JS):
+content_kind  n_scanned  semgrep_error_rate  n_analyzed  defect_rate  issues_per_kloc  median_loc
+        code        983              0.0142         969        0.151             1.23          37
+   html_like         17                   1           0          NaN              NaN    3.23e+03
+
+[3] Strongest positive associations feature -> rule (q<0.05, OR>1):
+                                               target                feature es_version  n_both  odds_ratio  odds_ratio_adj_loc     q_bh
+                       detect-non-literal-fs-filename              module:fs        api       5         721                 NaN 4.88e-08
+                          path-join-resolve-traversal            module:path        api       5         563                 NaN  1.3e-07
+                       detect-non-literal-fs-filename        fs_dynamic_path        api       4         184                 NaN 9.79e-06
+                       detect-non-literal-fs-filename      path_join_resolve        api       3        91.8                 NaN 0.000679
+                          path-join-resolve-traversal      path_join_resolve        api       3        91.8                 NaN 0.000679
+                       detect-non-literal-fs-filename            module:path        api       3        64.5                 NaN  0.00168
+                          path-join-resolve-traversal        fs_dynamic_path        api       2        38.7                 NaN   0.0373
+                          path-join-resolve-traversal              module:fs        api       2        38.7                 NaN   0.0373
+                          path-join-resolve-traversal             json_parse        api       2        32.9                 NaN   0.0421
+                              detect-object-injection                 for_of     ES2015      28        14.9                6.72 7.04e-14
+                              detect-object-injection  object_entries_values     ES2017      10        13.1                8.17  2.7e-05
+                              detect-object-injection      computed_property     ES2015      12        12.2                6.92 4.74e-06
+                              detect-object-injection              let_const     ES2015     108        9.94                8.03  2.9e-12
+                              detect-object-injection         map_set_symbol     ES2015      16        9.72                5.68  3.9e-07
+                       node_insecure_random_generator           class_fields     ES2022       6        8.16                6.82   0.0373
+javascript-crypto-rule-node_insecure_random_generator           class_fields     ES2022       6        8.16                6.82   0.0373
+                       node_insecure_random_generator                 ts_any         ts       6        7.67                6.12   0.0421
+javascript-crypto-rule-node_insecure_random_generator                 ts_any         ts       6        7.67                6.12   0.0421
+                              detect-object-injection         loose_equality     legacy      23         7.2                3.99 3.98e-08
+                              detect-object-injection     default_parameters     ES2015      21        6.93                3.93 1.91e-07
+                              detect-object-injection      optional_chaining     ES2020      26        6.54                3.78    2e-08
+                              detect-object-injection             ts_as_cast         ts      44        6.17                3.74 2.45e-12
+                              detect-object-injection         arrow_function     ES2015      97        6.16                5.13 7.05e-13
+                              detect-object-injection     nullish_coalescing     ES2020      10        5.45                3.41  0.00321
+                              detect-object-injection template_interpolation     ES2015      51        5.31                3.32 3.74e-12
+
+All tables written to feature_analysis/

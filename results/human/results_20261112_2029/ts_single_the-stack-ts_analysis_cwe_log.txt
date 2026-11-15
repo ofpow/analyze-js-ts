@@ -1,0 +1,60 @@
+Semgrep files: 1 | scanned: 1000 | errors: 31 | findings (CWE, dedup): 183
+
+[1] Error bias - features over-represented in snippets Semgrep could not analyze (q<0.05):
+  none
+
+[2] By highest ES version used:
+max_es_version  n_scanned  semgrep_error_rate  n_analyzed  defect_rate  issues_per_kloc  median_loc
+          none         40                0.55          18            0                0    2.92e+03
+        ES2015        527             0.00569         524       0.0859             1.21          24
+        ES2016          1                   0           1            1            0.638    1.57e+03
+        ES2017         77                   0          77        0.169              2.5          45
+        ES2018         42              0.0476          40        0.275             2.97          81
+        ES2019          5                   0           5          0.2              6.4          90
+        ES2020         61              0.0164          60         0.35             2.97         107
+        ES2021          1                   0           1            0                0          44
+        ES2022        242              0.0124         239        0.222             1.03          69
+        ES2023          3                   0           3            0                0          57
+        ES2025          1                   0           1            1             15.5         129
+
+[2b] By era:
+     es_era  n_scanned  semgrep_error_rate  n_analyzed  defect_rate  issues_per_kloc  median_loc
+ES2015-2016        528             0.00568         525       0.0876             1.19          24
+ES2017-2019        124              0.0161         122        0.205             2.85          51
+    ES2020+        308               0.013         304        0.247             1.28          77
+ pre-ES2015         40                0.55          18            0                0    2.92e+03
+
+[2c] By content kind (non-'code' snippets are likely not JS):
+content_kind  n_scanned  semgrep_error_rate  n_analyzed  defect_rate  issues_per_kloc  median_loc
+        code        983              0.0142         969        0.151             1.23          37
+   html_like         17                   1           0          NaN              NaN    3.23e+03
+
+[3] Strongest positive associations feature -> cwe (q<0.05, OR>1):
+ target                feature es_version  n_both  odds_ratio  odds_ratio_adj_loc     q_bh
+CWE-798    secret_like_literal        api       4         249                 NaN 4.85e-06
+ CWE-22            module:path        api       8         207                 250 8.13e-11
+ CWE-22              module:fs        api       7         162                 216 2.07e-09
+ CWE-22      path_join_resolve        api       6         119                 127 7.84e-08
+ CWE-22        fs_dynamic_path        api       6         101                 128 1.59e-07
+ CWE-79            module:next        api       2        41.2                 NaN    0.043
+ CWE-22       commonjs_require     legacy       4        30.2                 NaN  0.00136
+ CWE-22         arrow_function     ES2015      10        19.9                 NaN    0.033
+ CWE-94                 for_of     ES2015      28        14.9                6.72 9.85e-14
+ CWE-94  object_entries_values     ES2017      10        13.1                8.17 3.44e-05
+ CWE-94      computed_property     ES2015      12        12.2                6.92 5.65e-06
+ CWE-94              let_const     ES2015     108        9.94                8.03 4.06e-12
+ CWE-94         map_set_symbol     ES2015      16        9.72                5.68 4.86e-07
+ CWE-94         loose_equality     legacy      23         7.2                3.99 4.65e-08
+ CWE-94     default_parameters     ES2015      21        6.93                3.93 2.36e-07
+ CWE-94      optional_chaining     ES2020      26        6.54                3.78 2.24e-08
+ CWE-94             ts_as_cast         ts      44        6.17                3.74 3.43e-12
+ CWE-94         arrow_function     ES2015      97        6.16                5.13 9.87e-13
+ CWE-94     nullish_coalescing     ES2020      10        5.45                3.41   0.0045
+ CWE-94 template_interpolation     ES2015      51        5.31                3.32 5.24e-12
+ CWE-94           array_spread     ES2015      30        5.21                3.87 5.98e-08
+ CWE-94      ts_ignore_comment         ts       7        5.12                2.76   0.0426
+ CWE-94        rest_parameters     ES2015      11        5.03                3.01  0.00392
+ CWE-94             json_parse        api       8        4.63                2.36   0.0357
+ CWE-94                 ts_any         ts      63        4.43                2.84 6.16e-11
+
+All tables written to feature_analysis/

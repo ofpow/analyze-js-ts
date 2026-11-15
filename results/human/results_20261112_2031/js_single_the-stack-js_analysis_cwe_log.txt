@@ -1,0 +1,61 @@
+Semgrep files: 1 | scanned: 1000 | errors: 6 | findings (CWE, dedup): 481
+
+[1] Error bias - features over-represented in snippets Semgrep could not analyze (q<0.05):
+         feature es_version  n_with_feature  error_rate_with  error_rate_without  odds_ratio   q_bh
+http_url_literal        api              36           0.0833             0.00311        28.7 0.0192
+   dom_html_sink        api              38           0.0789             0.00312          27 0.0192
+
+[2] By highest ES version used:
+max_es_version  n_scanned  semgrep_error_rate  n_analyzed  defect_rate  issues_per_kloc  median_loc
+          none        363             0.00551         361         0.28             2.55          31
+        ES2015        475             0.00421         473        0.271             3.61          34
+        ES2016          2                   0           2          0.5             15.2          66
+        ES2017         63                   0          63        0.365                7          49
+        ES2018         42                   0          42        0.262             2.42          68
+        ES2019          2                   0           2          0.5             7.69          65
+        ES2020         14                   0          14          0.5             7.28        66.5
+        ES2021          1                   0           1            1            0.245    1.22e+04
+        ES2022         27                   0          27        0.185             4.31          74
+        ES2023          5                   0           5          0.2             12.7           7
+        ES2025          6               0.333           4            1            0.658         120
+
+[2b] By era:
+     es_era  n_scanned  semgrep_error_rate  n_analyzed  defect_rate  issues_per_kloc  median_loc
+ES2015-2016        477             0.00419         475        0.272             3.64          34
+ES2017-2019        107                   0         107        0.327             4.42          56
+    ES2020+         53              0.0377          51        0.353             1.38          74
+ pre-ES2015        363             0.00551         361         0.28             2.55          31
+
+[2c] By content kind (non-'code' snippets are likely not JS):
+content_kind  n_scanned  semgrep_error_rate  n_analyzed  defect_rate  issues_per_kloc  median_loc
+        code       1000               0.006         994        0.285             2.87          37
+
+[3] Strongest positive associations feature -> cwe (q<0.05, OR>1):
+  target                feature es_version  n_both  odds_ratio  odds_ratio_adj_loc     q_bh
+ CWE-327            math_random        api      31    1.21e+05                 NaN 2.93e-57
+ CWE-338            math_random        api      31    1.21e+05                 NaN 2.93e-57
+ CWE-185 regexp_constructor_dyn        api      30    4.34e+03            1.08e+05 8.71e-50
+CWE-1333 regexp_constructor_dyn        api      21    3.95e+03                 NaN 1.96e-34
+ CWE-352         module:express        api      13     2.5e+03                 NaN 2.37e-22
+ CWE-352            express_app        api      13    2.09e+03                 NaN 9.99e-22
+  CWE-22        fs_dynamic_path        api      21    1.51e+03            2.08e+03 8.72e-35
+  CWE-22              module:fs        api      18         258                 243 9.37e-25
+  CWE-22            module:path        api      19         168                 169 3.51e-23
+  CWE-22      path_join_resolve        api      16         156                 150 9.74e-21
+ CWE-352       commonjs_require     legacy      13        68.9                 NaN  6.7e-07
+CWE-1333            math_random        api      11        50.9                52.3 1.52e-11
+ CWE-185            math_random        api      14        38.1                34.9 5.09e-13
+ CWE-338 regexp_constructor_dyn        api      13        37.3                36.5 3.64e-12
+ CWE-327 regexp_constructor_dyn        api      13        37.3                36.5 3.64e-12
+  CWE-94         map_set_symbol     ES2015      38        28.2                61.7 2.48e-19
+CWE-1333       arguments_object     legacy      14        27.7                28.3 7.59e-11
+CWE-1333          dom_html_sink        api       9        27.2                26.8 5.42e-08
+  CWE-79          dom_html_sink        api       5        26.5                27.2 8.98e-05
+ CWE-352      user_input_source        api       4        26.1                 NaN 0.000472
+ CWE-327          dom_html_sink        api      12        25.7                22.3 4.63e-10
+ CWE-338          dom_html_sink        api      12        25.7                22.3 4.63e-10
+ CWE-185       arguments_object     legacy      21        25.5                24.6 2.76e-15
+  CWE-94 regexp_constructor_dyn        api      27        23.3                40.7 3.45e-13
+  CWE-22       commonjs_require     legacy      21        22.5                23.9 4.25e-09
+
+All tables written to feature_analysis/

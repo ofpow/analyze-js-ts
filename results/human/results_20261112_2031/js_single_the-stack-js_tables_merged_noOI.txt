@@ -1,0 +1,25 @@
+j
+excluded rules ['detect-object-injection']: 8433 raw findings removed
+merged same-location findings: 266 -> 187
+scanned: 1000 (100%)
+clean: 866 (86.60%)
+defective: 128 (12.80%)
+errors: 6 (0.60%)
+issues: 187
+
+Final Unified CWE Set (without duplicates): 25
+
+Top 10 CWEs by occurrence (across all severities):
+ 1. CWE-185: 34
+ 2. CWE-327: 31
+ 3. CWE-338: 31
+ 4. CWE-22: 28
+ 5. CWE-95: 22
+ 6. CWE-1333: Inefficient Regular Expression Complexity: 21
+ 7. CWE-352: Cross-Site Request Forgery (CSRF): 13
+ 8. CWE-79: 11
+ 9. CWE-798: Use of Hard-coded Credentials: 9
+10. CWE-915: Improperly Controlled Modification of Dynamically-Determined Object Attributes: 8
+WARNING 144
+ERROR 28
+INFO 15

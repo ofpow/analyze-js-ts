@@ -1,0 +1,45 @@
+1000 snippets (javascript, single)
+tree-sitter parse errors: 20 (2.00%) - features are still extracted from the valid parts
+
+Snippets by highest ES version used:
+  none       363 (36.3%)
+  ES2015     475 (47.5%)
+  ES2016       2 (0.2%)
+  ES2017      63 (6.3%)
+  ES2018      42 (4.2%)
+  ES2019       2 (0.2%)
+  ES2020      14 (1.4%)
+  ES2021       1 (0.1%)
+  ES2022      27 (2.7%)
+  ES2023       5 (0.5%)
+  ES2025       6 (0.6%)
+
+Snippets by era:
+  ES2015-2016     477 (47.7%)
+  ES2017-2019     107 (10.7%)
+  ES2020+          53 (5.3%)
+  pre-ES2015      363 (36.3%)
+
+Content kind (non-'code' = probably not JS, mislabelled in the dataset):
+  code           1000 (100.0%)
+
+Most imported modules:
+  react                     145
+  path                      43
+  fs                        30
+  express                   23
+  prop-types                20
+  react-native              19
+  react-redux               18
+  react-router-dom          16
+  lodash                    16
+  styled-components         12
+  chai                      11
+  dotenv                    10
+  mongoose                  10
+  jquery                    9
+  webpack                   9
+
+Written: ./js_single_the-stack-js_features_long.csv
+         ./js_single_the-stack-js_snippets.csv
+         ./js_single_the-stack-js_feature_catalog.csv

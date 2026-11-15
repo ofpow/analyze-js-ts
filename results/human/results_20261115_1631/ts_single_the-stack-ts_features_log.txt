@@ -1,0 +1,46 @@
+3000 snippets (typescript, single)
+tree-sitter parse errors: 91 (3.03%) - features are still extracted from the valid parts
+
+Snippets by highest ES version used:
+  none       114 (3.8%)
+  ES2015    1581 (52.7%)
+  ES2016       1 (0.0%)
+  ES2017     262 (8.7%)
+  ES2018     136 (4.5%)
+  ES2019       9 (0.3%)
+  ES2020     188 (6.3%)
+  ES2021       3 (0.1%)
+  ES2022     698 (23.3%)
+  ES2023       4 (0.1%)
+  ES2025       4 (0.1%)
+
+Snippets by era:
+  ES2015-2016    1582 (52.7%)
+  ES2017-2019     407 (13.6%)
+  ES2020+         897 (29.9%)
+  pre-ES2015      114 (3.8%)
+
+Content kind (non-'code' = probably not JS, mislabelled in the dataset):
+  code           2952 (98.4%)
+  html_like        48 (1.6%)
+
+Most imported modules:
+  react                     491
+  @angular/core             415
+  rxjs                      120
+  @angular/router           116
+  @angular/common           90
+  path                      82
+  @nestjs/common            69
+  @angular/forms            61
+  src                       59
+  fs                        52
+  express                   51
+  styled-components         51
+  lodash                    42
+  @material-ui/core         41
+  react-router-dom          38
+
+Written: ./ts_single_the-stack-ts_features_long.csv
+         ./ts_single_the-stack-ts_snippets.csv
+         ./ts_single_the-stack-ts_feature_catalog.csv

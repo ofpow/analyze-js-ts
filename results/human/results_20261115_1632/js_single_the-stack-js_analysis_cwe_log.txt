@@ -1,0 +1,71 @@
+Semgrep files: 1 | scanned: 3000 | errors: 30 | findings (CWE, dedup): 1357
+
+[1] Error bias - features over-represented in snippets Semgrep could not analyze (q<0.05):
+               feature es_version  n_with_feature  error_rate_with  error_rate_without  odds_ratio     q_bh
+         dom_html_sink        api              96            0.115             0.00654        19.9 4.75e-08
+           math_random        api              82            0.122             0.00685        20.5 9.14e-08
+regexp_constructor_dyn        api              86            0.116             0.00686        19.4 9.84e-08
+  function_constructor        api              33            0.182             0.00809        28.4 9.62e-06
+      arguments_object     legacy             228           0.0526             0.00649         8.6    1e-05
+            json_parse        api             117           0.0684             0.00763        9.87 0.000142
+prototype_manipulation     legacy             315           0.0381              0.0067        5.94 0.000223
+        loose_equality     legacy             454           0.0308             0.00628        5.05  0.00034
+      http_url_literal        api             107           0.0654             0.00795        9.12 0.000492
+             eval_call        api              24            0.167             0.00874        24.4 0.000534
+        map_set_symbol     ES2015             107           0.0561              0.0083         7.5  0.00341
+   http_request_client        api             121           0.0496             0.00834        6.56  0.00603
+
+[2] By highest ES version used:
+max_es_version  n_scanned  semgrep_error_rate  n_analyzed  defect_rate  issues_per_kloc  median_loc
+          none       1085              0.0166        1067        0.299             2.29          32
+        ES2015       1457             0.00343        1452        0.255              2.8          34
+        ES2016          2                   0           2          0.5             15.2          66
+        ES2017        189             0.00529         188        0.399             4.65          49
+        ES2018        118             0.00847         117        0.359             3.04          87
+        ES2019          4                   0           4         0.75             8.03         130
+        ES2020         41              0.0244          40        0.375             2.27          56
+        ES2021          1                   0           1            1            0.245    1.22e+04
+        ES2022         89              0.0337          86        0.291             4.35          74
+        ES2023          7                   0           7        0.286             14.8          11
+        ES2025          7               0.143           6        0.833            0.526         149
+
+[2b] By era:
+     es_era  n_scanned  semgrep_error_rate  n_analyzed  defect_rate  issues_per_kloc  median_loc
+ES2015-2016       1459             0.00343        1454        0.255              2.8          34
+ES2017-2019        311             0.00643         309        0.388             3.99          56
+    ES2020+        145              0.0345         140        0.343              1.7          72
+ pre-ES2015       1085              0.0166        1067        0.299             2.29          32
+
+[2c] By content kind (non-'code' snippets are likely not JS):
+content_kind  n_scanned  semgrep_error_rate  n_analyzed  defect_rate  issues_per_kloc  median_loc
+        code       3000                0.01        2970        0.289             2.59          38
+
+[3] Strongest positive associations feature -> cwe (q<0.05, OR>1):
+  target                feature es_version  n_both  odds_ratio  odds_ratio_adj_loc      q_bh
+ CWE-338            math_random        api      72    8.41e+05                 NaN 1.59e-143
+ CWE-327            math_random        api      72     1.2e+05                 NaN 5.36e-139
+CWE-1333 regexp_constructor_dyn        api      50     1.1e+04                 NaN  3.23e-87
+ CWE-185 regexp_constructor_dyn        api      75       1e+04            7.46e+04 5.09e-131
+ CWE-352         module:express        api      31    5.31e+03                 NaN  6.62e-54
+ CWE-352            express_app        api      31    4.75e+03                 NaN  7.19e-53
+ CWE-345           post_message        api      10    1.33e+03            1.98e+03  7.53e-20
+  CWE-22        fs_dynamic_path        api      51         582                 541  8.75e-80
+  CWE-22              module:fs        api      48         296                 268     6e-69
+ CWE-918    http_request_client        api      21         260                 304   4.2e-27
+ CWE-352       commonjs_require     legacy      31         174                 NaN  5.64e-17
+ CWE-943      user_input_source        api      10         149                 160  3.73e-14
+  CWE-22            module:path        api      51         128                 128  7.37e-60
+  CWE-95              eval_call        api      12         124                 104  1.09e-16
+ CWE-185   function_constructor        api      20         113                 176   1.3e-24
+ CWE-345   function_constructor        api       5         110                 110   2.3e-07
+ CWE-798    secret_like_literal        api      16         106                82.6  6.83e-21
+  CWE-22      path_join_resolve        api      42         104                  99  3.78e-50
+CWE-1333   function_constructor        api      15         102                92.1  1.12e-19
+ CWE-918           module:axios        api      10        92.8                91.3   1.8e-13
+ CWE-338   function_constructor        api      17        86.7                96.9  1.08e-20
+ CWE-327   function_constructor        api      17        82.2                93.5  2.22e-20
+ CWE-915 regexp_constructor_dyn        api      13        81.9                18.9  9.82e-16
+ CWE-915   function_constructor        api       7        79.4                15.7  2.36e-09
+ CWE-915          dom_html_sink        api      13        71.5                16.9   4.5e-15
+
+All tables written to feature_analysis/

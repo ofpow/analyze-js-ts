@@ -1,0 +1,4 @@
+semgrep_error_type,n_snippets
+PartialParsing,20
+Timeout,6
+Syntax error,5

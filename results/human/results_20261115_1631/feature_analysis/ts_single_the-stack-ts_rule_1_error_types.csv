@@ -1,0 +1,4 @@
+semgrep_error_type,n_snippets
+PartialParsing,48
+Syntax error,36
+Other syntax error,2

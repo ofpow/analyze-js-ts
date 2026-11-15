@@ -1,0 +1,71 @@
+Semgrep files: 1 | scanned: 3000 | errors: 30 | findings (CWE, dedup): 1357
+
+[1] Error bias - features over-represented in snippets Semgrep could not analyze (q<0.05):
+               feature es_version  n_with_feature  error_rate_with  error_rate_without  odds_ratio     q_bh
+         dom_html_sink        api              96            0.115             0.00654        19.9 4.75e-08
+           math_random        api              82            0.122             0.00685        20.5 9.14e-08
+regexp_constructor_dyn        api              86            0.116             0.00686        19.4 9.84e-08
+  function_constructor        api              33            0.182             0.00809        28.4 9.62e-06
+      arguments_object     legacy             228           0.0526             0.00649         8.6    1e-05
+            json_parse        api             117           0.0684             0.00763        9.87 0.000142
+prototype_manipulation     legacy             315           0.0381              0.0067        5.94 0.000223
+        loose_equality     legacy             454           0.0308             0.00628        5.05  0.00034
+      http_url_literal        api             107           0.0654             0.00795        9.12 0.000492
+             eval_call        api              24            0.167             0.00874        24.4 0.000534
+        map_set_symbol     ES2015             107           0.0561              0.0083         7.5  0.00341
+   http_request_client        api             121           0.0496             0.00834        6.56  0.00603
+
+[2] By highest ES version used:
+max_es_version  n_scanned  semgrep_error_rate  n_analyzed  defect_rate  issues_per_kloc  median_loc
+          none       1085              0.0166        1067        0.299             2.29          32
+        ES2015       1457             0.00343        1452        0.255              2.8          34
+        ES2016          2                   0           2          0.5             15.2          66
+        ES2017        189             0.00529         188        0.399             4.65          49
+        ES2018        118             0.00847         117        0.359             3.04          87
+        ES2019          4                   0           4         0.75             8.03         130
+        ES2020         41              0.0244          40        0.375             2.27          56
+        ES2021          1                   0           1            1            0.245    1.22e+04
+        ES2022         89              0.0337          86        0.291             4.35          74
+        ES2023          7                   0           7        0.286             14.8          11
+        ES2025          7               0.143           6        0.833            0.526         149
+
+[2b] By era:
+     es_era  n_scanned  semgrep_error_rate  n_analyzed  defect_rate  issues_per_kloc  median_loc
+ES2015-2016       1459             0.00343        1454        0.255              2.8          34
+ES2017-2019        311             0.00643         309        0.388             3.99          56
+    ES2020+        145              0.0345         140        0.343              1.7          72
+ pre-ES2015       1085              0.0166        1067        0.299             2.29          32
+
+[2c] By content kind (non-'code' snippets are likely not JS):
+content_kind  n_scanned  semgrep_error_rate  n_analyzed  defect_rate  issues_per_kloc  median_loc
+        code       3000                0.01        2970        0.289             2.59          38
+
+[3] Strongest positive associations feature -> rule (q<0.05, OR>1):
+                                               target                feature es_version  n_both  odds_ratio  odds_ratio_adj_loc      q_bh
+javascript-crypto-rule-node_insecure_random_generator            math_random        api      72    8.41e+05                 NaN 7.47e-144
+                       node_insecure_random_generator            math_random        api      72    8.41e+05                 NaN 7.47e-144
+                            detect-non-literal-regexp regexp_constructor_dyn        api      68    4.67e+04                 NaN 2.69e-127
+                 express-check-csurf-middleware-usage         module:express        api      31    5.31e+03                 NaN  7.36e-54
+                 express-check-csurf-middleware-usage            express_app        api      31    4.75e+03                 NaN   7.9e-53
+                       detect-non-literal-fs-filename        fs_dynamic_path        api      43    2.06e+03             2.6e+03  5.84e-74
+                       detect-non-literal-fs-filename              module:fs        api      43    1.65e+03            1.86e+03   1.3e-71
+                          path-join-resolve-traversal            module:path        api      18         989                 NaN  2.52e-24
+                          detect-eval-with-expression              eval_call        api      12         666                 606  1.03e-22
+                       javascript-ssrf-rule-node_ssrf    http_request_client        api      20         408                 573  1.34e-26
+                 express-check-csurf-middleware-usage       commonjs_require     legacy      31         174                 NaN  5.93e-17
+                           detect-non-literal-require       commonjs_require     legacy      22         123                 NaN  6.06e-12
+                          path-join-resolve-traversal      path_join_resolve        api      14         123                 119  1.35e-17
+                             prototype-pollution-loop regexp_constructor_dyn        api      13        94.5                21.6  3.84e-16
+                       javascript-ssrf-rule-node_ssrf           module:axios        api       9        87.2                85.4  5.36e-12
+javascript-crypto-rule-node_insecure_random_generator   function_constructor        api      17        86.7                96.9  1.25e-20
+                       node_insecure_random_generator   function_constructor        api      17        86.7                96.9  1.25e-20
+                             prototype-pollution-loop   function_constructor        api       7        85.8                16.5  1.49e-09
+                                            regex_dos    function_expression     legacy      29          85                 NaN  1.21e-10
+                             prototype-pollution-loop          dom_html_sink        api      13        82.5                19.4  1.69e-15
+                            detect-non-literal-regexp   function_constructor        api      16          79                79.8  3.22e-19
+                          detect-eval-with-expression   function_constructor        api       6        70.9                  52  6.85e-08
+                                            regex_dos         loose_equality     legacy      27        67.3                72.1  2.15e-19
+                       detect-non-literal-fs-filename      path_join_resolve        api      26        61.3                56.1  5.13e-28
+                                            regex_dos   function_constructor        api       8        59.3                  43   8.6e-10
+
+All tables written to feature_analysis/
