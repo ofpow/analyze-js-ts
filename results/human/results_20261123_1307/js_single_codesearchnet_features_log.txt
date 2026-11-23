@@ -1,0 +1,44 @@
+10000 snippets (javascript, single)
+tree-sitter parse errors: 107 (1.07%) - features are still extracted from the valid parts
+
+Snippets by highest ES version used:
+  none      7572 (75.7%)
+  ES2015    2184 (21.8%)
+  ES2017     120 (1.2%)
+  ES2018      87 (0.9%)
+  ES2019       3 (0.0%)
+  ES2020       4 (0.0%)
+  ES2021       1 (0.0%)
+  ES2022       2 (0.0%)
+  ES2023       1 (0.0%)
+  ES2025      26 (0.3%)
+
+Snippets by era:
+  ES2015-2016    2184 (21.8%)
+  ES2017-2019     210 (2.1%)
+  ES2020+          34 (0.3%)
+  pre-ES2015     7572 (75.7%)
+
+Content kind (non-'code' = probably not JS, mislabelled in the dataset):
+  code          10000 (100.0%)
+
+Most imported modules:
+  fs                        11
+  path                      8
+  text!LiveDevelopment      2
+  js-yaml                   2
+  child_process             1
+  through2                  1
+  gulp-git                  1
+  vinyl                     1
+  timers                    1
+  @octokit/rest             1
+  net                       1
+  vm                        1
+  portfinder                1
+  aws-sdk                   1
+  progress                  1
+
+Written: ./js_single_codesearchnet_features_long.csv
+         ./js_single_codesearchnet_snippets.csv
+         ./js_single_codesearchnet_feature_catalog.csv

@@ -1,0 +1,58 @@
+Semgrep files: 1 | scanned: 10000 | errors: 5 | findings (CWE, dedup): 3034
+
+[1] Error bias - features over-represented in snippets Semgrep could not analyze (q<0.05):
+  none
+
+[2] By highest ES version used:
+max_es_version  n_scanned  semgrep_error_rate  n_analyzed  defect_rate  issues_per_kloc  median_loc
+          none       7572            0.000528        7568        0.292             13.1          14
+        ES2015       2184            0.000458        2183        0.275             12.4          16
+        ES2017        120                   0         120        0.225             8.73          17
+        ES2018         87                   0          87         0.23             4.18          28
+        ES2019          3                   0           3        0.333             22.2          13
+        ES2020          4                   0           4         0.25             4.78          47
+        ES2021          1                   0           1            1             15.6          64
+        ES2022          2                   0           2            1             32.3          31
+        ES2023          1                   0           1            1             33.3          30
+        ES2025         26                   0          26        0.385              6.8        30.5
+
+[2b] By era:
+     es_era  n_scanned  semgrep_error_rate  n_analyzed  defect_rate  issues_per_kloc  median_loc
+ES2015-2016       2184            0.000458        2183        0.275             12.4          16
+ES2017-2019        210                   0         210        0.229             6.14          21
+    ES2020+         34                   0          34        0.441             8.17          31
+ pre-ES2015       7572            0.000528        7568        0.292             13.1          14
+
+[2c] By content kind (non-'code' snippets are likely not JS):
+content_kind  n_scanned  semgrep_error_rate  n_analyzed  defect_rate  issues_per_kloc  median_loc
+        code      10000              0.0005        9995        0.288             12.7          14
+
+[3] Strongest positive associations feature -> cwe (q<0.05, OR>1):
+  target                feature es_version  n_both  odds_ratio  odds_ratio_adj_loc      q_bh
+ CWE-338            math_random        api      21    8.58e+05                 NaN   3.6e-63
+ CWE-327            math_random        api      21    1.72e+05                 NaN  7.28e-61
+CWE-1333 regexp_constructor_dyn        api      58    4.38e+04                 NaN 1.36e-130
+ CWE-185 regexp_constructor_dyn        api      83    1.47e+04            4.12e+04 1.63e-172
+  CWE-95       commonjs_require     legacy      23         392                 414  5.21e-41
+  CWE-95      path_join_resolve        api       9        23.1                21.2  9.27e-08
+CWE-1333         regex_flag_u_y     ES2015       3        21.9                 NaN   0.00845
+ CWE-185         regex_flag_u_y     ES2015       5        17.7                14.4  0.000488
+  CWE-95        fs_dynamic_path        api       6        12.1                10.6  0.000527
+CWE-1333 template_interpolation     ES2015      14        6.26                 5.7  1.75e-05
+CWE-1333       template_literal     ES2015      14        6.02                5.48  2.51e-05
+  CWE-95     shorthand_property     ES2015       5        5.64                4.72    0.0368
+  CWE-95 template_interpolation     ES2015       7        5.37                4.71    0.0115
+  CWE-95       template_literal     ES2015       7        5.17                4.53    0.0137
+ CWE-185 template_interpolation     ES2015      23        4.69                3.56   6.9e-07
+ CWE-185       template_literal     ES2015      23        4.51                3.44  1.24e-06
+  CWE-95              let_const     ES2015      17        4.45                 4.3  0.000493
+  CWE-95         arrow_function     ES2015       9        4.06                3.72    0.0163
+ CWE-185        fs_dynamic_path        api       8        3.86                2.87    0.0222
+ CWE-185      path_join_resolve        api       7        3.85                2.88    0.0382
+CWE-1333         arrow_function     ES2015      14        3.42                3.17   0.00451
+CWE-1333              let_const     ES2015      25         3.2                3.07   0.00049
+  CWE-94                 for_of     ES2015      39        2.95                2.03  9.05e-05
+  CWE-94        var_declaration     legacy    1936        2.44                2.01  1.25e-77
+ CWE-185              let_const     ES2015      43        2.37                2.17  0.000353
+
+All tables written to feature_analysis/

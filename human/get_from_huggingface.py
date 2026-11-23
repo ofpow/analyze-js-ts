@@ -2,13 +2,11 @@ from datasets import load_dataset, load_from_disk, Dataset
 from pprint import pprint
 import csv
 
-#stream = load_dataset("bigcode/the-stack", data_dir="data/javascript", split="train", streaming=True)
-#subset_iterable = stream.take(10000)
-#dataset = Dataset.from_generator(lambda: (yield from subset_iterable))
-#dataset.save_to_disk("./the-stack-js")
+#dataset = load_dataset("Nan-Do/code-search-net-javascript", split="train")
+#dataset.save_to_disk("./codesearchnetjs")
 #print('done downloading')
 
-dataset = load_from_disk('./the-stack-js').select(range(3000))
+dataset = load_from_disk('./codesearchnetjs').select(range(10000))
 print(dataset)
 
 csvs = []
@@ -16,9 +14,9 @@ csvs = []
 for i, datum in enumerate(dataset):
     entry = {
         'riga_id': i,
-        'codice_risposta': datum['content'],
+        'codice_risposta': datum['code'],
         'risposte_alternative': 'no',
-        'linguaggio': datum['lang']
+        'linguaggio': datum['language']
     }
     csvs.append(entry)
 
