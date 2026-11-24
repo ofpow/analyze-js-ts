@@ -61,7 +61,7 @@ def main():
         reader = csv.DictReader(f)
         snippets = list(reader)
         for snippet in tqdm(snippets):
-            if snippet['linguaggio'] == 'javascript' or snippet['linguaggio'] == 'typescript':
+            if snippet['linguaggio'].casefold() == 'javascript' or snippet['linguaggio'].casefold() == 'typescript':
                 metrics, tokens = analyze_code(snippet['codice_risposta'])
                 metrics_by_field[snippet['linguaggio']].extend(metrics)
                 tokens_by_field[snippet['linguaggio']].update(tokens)
