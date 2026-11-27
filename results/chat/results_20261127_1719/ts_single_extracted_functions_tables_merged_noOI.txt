@@ -1,0 +1,25 @@
+t
+excluded rules ['detect-object-injection']: 701 raw findings removed
+merged same-location findings: 283 -> 180
+scanned: 5401 (100%)
+clean: 4345 (80.45%)
+defective: 178 (3.30%)
+errors: 878 (16.26%)
+issues: 180
+
+Final Unified CWE Set (without duplicates): 15
+
+Top 10 CWEs by occurrence (across all severities):
+ 1. CWE-327: 101
+ 2. CWE-338: 101
+ 3. CWE-134: Use of Externally-Controlled Format String: 24
+ 4. CWE-185: 15
+ 5. CWE-798: 7
+ 6. CWE-209: 6
+ 7. CWE-918: 6
+ 8. CWE-319: Cleartext Transmission of Sensitive Information: 5
+ 9. CWE-943: 5
+10. CWE-345: Insufficient Verification of Data Authenticity: 4
+WARNING 133
+INFO 24
+ERROR 23

@@ -1,0 +1,59 @@
+Semgrep files: 1 | scanned: 5401 | errors: 878 | findings (CWE, dedup): 572
+
+[1] Error bias - features over-represented in snippets Semgrep could not analyze (q<0.05):
+           feature es_version  n_with_feature  error_rate_with  error_rate_without  odds_ratio     q_bh
+ await_in_fragment     ES2017             120                1               0.144    1.44e+03 3.62e-97
+shorthand_property     ES2015             379            0.245               0.156        1.76  6.4e-05
+
+[2] By highest ES version used:
+max_es_version  n_scanned  semgrep_error_rate  n_analyzed  defect_rate  issues_per_kloc  median_loc
+          none        609               0.619         232       0.0733             19.5           5
+        ES2015       3181               0.102        2858       0.0808               14           5
+        ES2016          3                   0           3        0.333             32.3           1
+        ES2017        852               0.143         730       0.0603              2.9          14
+        ES2018        229              0.0611         215        0.242             14.3           9
+        ES2019        128              0.0156         126      0.00794            0.499          12
+        ES2020        391              0.0946         354        0.237             10.3          15
+        ES2021          6               0.167           5          0.6               22          16
+        ES2024          2                   1           0          NaN              NaN          60
+
+[2b] By era:
+     es_era  n_scanned  semgrep_error_rate  n_analyzed  defect_rate  issues_per_kloc  median_loc
+ES2015-2016       3184               0.101        2861       0.0811               14           5
+ES2017-2019       1209               0.114        1071       0.0906             4.51          13
+    ES2020+        399                 0.1         359        0.242             10.6          15
+ pre-ES2015        609               0.619         232       0.0733             19.5           5
+
+[2c] By content kind (non-'code' snippets are likely not JS):
+content_kind  n_scanned  semgrep_error_rate  n_analyzed  defect_rate  issues_per_kloc  median_loc
+        code       5401               0.163        4523       0.0957             9.76           6
+
+[3] Strongest positive associations feature -> cwe (q<0.05, OR>1):
+ target                feature es_version  n_both  odds_ratio  odds_ratio_adj_loc      q_bh
+CWE-327            math_random        api     101     1.8e+06                 NaN 4.05e-207
+CWE-338            math_random        api     101     1.8e+06                 NaN 4.05e-207
+CWE-798    secret_like_literal        api       7    1.33e+03                 NaN  1.27e-12
+CWE-134 template_interpolation     ES2015      24         380                 NaN  2.85e-21
+CWE-134       template_literal     ES2015      24         364                 NaN  5.98e-21
+CWE-798            ts_non_null         ts       6         258                 122  4.05e-09
+CWE-798     shorthand_property     ES2015       7         227                 NaN   7.9e-08
+CWE-943    function_expression     legacy       3         199                 NaN  5.12e-05
+CWE-798    http_request_client        api       7         161                 NaN  6.57e-07
+CWE-943             ts_as_cast         ts       5         156                 NaN   1.8e-05
+CWE-943                    jwt        api       2         143                 NaN   0.00214
+CWE-918    http_request_client        api       6         139                 NaN  6.33e-06
+CWE-319    http_request_client        api       5         118                 NaN  5.76e-05
+CWE-798                  await     ES2017       7          72                 NaN  5.76e-05
+CWE-798         async_function     ES2017       7        65.9                 NaN  8.94e-05
+CWE-918                  await     ES2017       6        62.3                 NaN  0.000287
+CWE-209                  await     ES2017       6        62.3                 NaN  0.000287
+CWE-918         async_function     ES2017       6          57                 NaN  0.000407
+CWE-209         async_function     ES2017       6          57                 NaN  0.000407
+CWE-943                  await     ES2017       5        52.7                 NaN   0.00137
+CWE-918                promise     ES2015       2        50.2                 NaN    0.0125
+CWE-943         async_function     ES2017       5        48.2                 NaN   0.00186
+CWE-918            ts_generics         ts       5        44.4                43.9  0.000169
+CWE-134         loose_equality     legacy       2        39.9                 NaN    0.0153
+CWE-918          object_spread     ES2018       4        33.9                 NaN  0.000859
+
+All tables written to feature_analysis/

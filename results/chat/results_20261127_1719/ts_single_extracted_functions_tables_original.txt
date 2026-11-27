@@ -1,0 +1,23 @@
+t
+scanned: 5401 (100%)
+clean: 4090 (75.73%)
+defective: 433 (8.02%)
+errors: 878 (16.26%)
+issues: 573
+
+Final Unified CWE Set (without duplicates): 16
+
+Top 10 CWEs by occurrence (across all severities):
+ 1. CWE-94: IMPROPER CONTROL OF GENERATION OF CODE ('CODE INJECTION'): 290
+ 2. CWE-327: 101
+ 3. CWE-338: 101
+ 4. CWE-134: Use of Externally-Controlled Format String: 24
+ 5. CWE-185: 15
+ 6. CWE-798: 8
+ 7. CWE-209: 6
+ 8. CWE-918: 6
+ 9. CWE-319: Cleartext Transmission of Sensitive Information: 5
+10. CWE-943: 5
+ERROR 24
+INFO 24
+WARNING 525

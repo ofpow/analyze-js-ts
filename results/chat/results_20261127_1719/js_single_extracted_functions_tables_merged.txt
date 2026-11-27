@@ -1,0 +1,24 @@
+j
+merged same-location findings: 2235 -> 1910
+scanned: 17937 (100%)
+clean: 15778 (87.96%)
+defective: 1814 (10.11%)
+errors: 345 (1.92%)
+issues: 1910
+
+Final Unified CWE Set (without duplicates): 21
+
+Top 10 CWEs by occurrence (across all severities):
+ 1. CWE-94: IMPROPER CONTROL OF GENERATION OF CODE ('CODE INJECTION'): 1304
+ 2. CWE-327: 262
+ 3. CWE-338: 262
+ 4. CWE-134: Use of Externally-Controlled Format String: 62
+ 5. CWE-79: 59
+ 6. CWE-209: 45
+ 7. CWE-943: 45
+ 8. CWE-185: 33
+ 9. CWE-798: 31
+10. CWE-1333: Inefficient Regular Expression Complexity: 30
+WARNING 1734
+INFO 62
+ERROR 114

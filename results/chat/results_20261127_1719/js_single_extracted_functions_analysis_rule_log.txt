@@ -1,0 +1,62 @@
+/home/ofpow/analyze-js/scripts/results_20261127_1719/analyze_features_vs_semgrep.py:204: DtypeWarning: Columns (13: modules) have mixed types. Specify dtype option on import or set low_memory=False.
+  snippets = pd.read_csv(f"{args.features}_snippets.csv")
+Semgrep files: 1 | scanned: 17937 | errors: 345 | findings (CWE, dedup): 2231
+
+[1] Error bias - features over-represented in snippets Semgrep could not analyze (q<0.05):
+           feature es_version  n_with_feature  error_rate_with  error_rate_without  odds_ratio    q_bh
+nullish_coalescing     ES2020              62            0.113              0.0189           7 0.00186
+shorthand_property     ES2015             731           0.0356              0.0185        1.99  0.0216
+
+[2] By highest ES version used:
+max_es_version  n_scanned  semgrep_error_rate  n_analyzed  defect_rate  issues_per_kloc  median_loc
+          none       2745              0.0663        2563       0.0456             7.71           5
+        ES2015      12328              0.0101       12203       0.0972             12.5           4
+        ES2016          3                   0           3        0.333             47.6           7
+        ES2017       1798              0.0117        1777        0.156             7.56          16
+        ES2018        462             0.00433         460         0.22             9.55           9
+        ES2019         35                   0          35       0.0286            0.706          35
+        ES2020        551              0.0218         539        0.234             6.48          25
+        ES2021         13               0.231          10          0.4             25.4           9
+        ES2023          2                   0           2          0.5             90.9         5.5
+
+[2b] By era:
+     es_era  n_scanned  semgrep_error_rate  n_analyzed  defect_rate  issues_per_kloc  median_loc
+ES2015-2016      12331              0.0101       12206       0.0972             12.5           4
+ES2017-2019       2295                0.01        2272        0.167             7.79          15
+    ES2020+        566              0.0265         551        0.238             6.65          24
+ pre-ES2015       2745              0.0663        2563       0.0456             7.71           5
+
+[2c] By content kind (non-'code' snippets are likely not JS):
+content_kind  n_scanned  semgrep_error_rate  n_analyzed  defect_rate  issues_per_kloc  median_loc
+        code      17931              0.0192       17586        0.103             10.1           5
+  shell_like          6                   0           6        0.333             24.7        10.5
+
+[3] Strongest positive associations feature -> rule (q<0.05, OR>1):
+                                               target                feature es_version  n_both  odds_ratio  odds_ratio_adj_loc     q_bh
+javascript-crypto-rule-node_insecure_random_generator            math_random        api     262    1.82e+07                 NaN        0
+                       node_insecure_random_generator            math_random        api     262    1.82e+07                 NaN        0
+                            detect-non-literal-regexp regexp_constructor_dyn        api      32    2.28e+06                 NaN 6.27e-99
+                                node_nosqli_injection      user_input_source        api      33    4.82e+03                 NaN 3.58e-59
+       javascript-database-rule-node_nosqli_injection            object_rest     ES2018       9    2.89e+03            1.81e+03 2.29e-23
+                javascript-dos-rule-layer7_object_dos      user_input_source        api      20     2.8e+03                 NaN 1.33e-35
+                                direct-response-write      user_input_source        api      17    2.36e+03                 NaN 3.32e-30
+                       javascript-ssrf-rule-node_ssrf    http_request_client        api      27    1.07e+03                 NaN 2.32e-34
+                             react-unsanitized-method          dom_html_sink        api      13         978                 NaN 8.27e-20
+                                  unsafe-formatstring template_interpolation     ES2015      62         700                 NaN 2.29e-49
+                                  unsafe-formatstring       template_literal     ES2015      62         675                 NaN  1.4e-48
+                                node_nosqli_injection                  await     ES2017      33         575                 NaN 1.98e-31
+                                node_nosqli_injection                    jwt        api      13         563                 406 3.42e-27
+                                node_nosqli_injection         async_function     ES2017      33         532                 NaN  1.7e-30
+       javascript-database-rule-node_nosqli_injection            process_env        api       9         477                 210 3.21e-17
+                        react-dangerouslysetinnerhtml                    jsx        jsx      17         473                 NaN  3.5e-19
+                                          express_xss      user_input_source        api      10         460            6.27e+03 1.19e-16
+       javascript-database-rule-node_nosqli_injection      user_input_source        api      10         276                 216 6.29e-16
+                             generic_error_disclosure                  await     ES2017      44         256                 395 1.87e-40
+                             generic_error_disclosure         async_function     ES2017      44         237                 346 3.51e-39
+       javascript-database-rule-node_nosqli_injection                  await     ES2017      12         212                 NaN 2.22e-11
+                                node_nosqli_injection            process_env        api      15         157                70.8 5.35e-24
+                             react-unsanitized-method template_interpolation     ES2015      13         149                 NaN 2.76e-10
+                             react-unsanitized-method       template_literal     ES2015      13         143                 NaN 3.96e-10
+                                node_nosqli_injection              let_const     ES2015      33         124                 NaN 1.41e-14
+
+All tables written to feature_analysis/

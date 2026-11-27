@@ -1,0 +1,28 @@
+5401 snippets (typescript, single)
+tree-sitter parse errors: 1012 (18.74%) - features are still extracted from the valid parts
+
+Snippets by highest ES version used:
+  none       609 (11.3%)
+  ES2015    3181 (58.9%)
+  ES2016       3 (0.1%)
+  ES2017     852 (15.8%)
+  ES2018     229 (4.2%)
+  ES2019     128 (2.4%)
+  ES2020     391 (7.2%)
+  ES2021       6 (0.1%)
+  ES2024       2 (0.0%)
+
+Snippets by era:
+  ES2015-2016    3184 (59.0%)
+  ES2017-2019    1209 (22.4%)
+  ES2020+         399 (7.4%)
+  pre-ES2015      609 (11.3%)
+
+Content kind (non-'code' = probably not JS, mislabelled in the dataset):
+  code           5401 (100.0%)
+
+Most imported modules:
+
+Written: ./ts_single_extracted_functions_features_long.csv
+         ./ts_single_extracted_functions_snippets.csv
+         ./ts_single_extracted_functions_feature_catalog.csv

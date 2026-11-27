@@ -1,0 +1,33 @@
+17937 snippets (javascript, single)
+tree-sitter parse errors: 1136 (6.33%) - features are still extracted from the valid parts
+
+Snippets by highest ES version used:
+  none      2745 (15.3%)
+  ES2015   12328 (68.7%)
+  ES2016       3 (0.0%)
+  ES2017    1798 (10.0%)
+  ES2018     462 (2.6%)
+  ES2019      35 (0.2%)
+  ES2020     551 (3.1%)
+  ES2021      13 (0.1%)
+  ES2023       2 (0.0%)
+
+Snippets by era:
+  ES2015-2016   12331 (68.7%)
+  ES2017-2019    2295 (12.8%)
+  ES2020+         566 (3.2%)
+  pre-ES2015     2745 (15.3%)
+
+Content kind (non-'code' = probably not JS, mislabelled in the dataset):
+  code          17931 (100.0%)
+  shell_like        6 (0.0%)
+
+Most imported modules:
+  readline                  5
+  linear                    1
+  embedding                 1
+  svelte-preprocess         1
+
+Written: ./js_single_extracted_functions_features_long.csv
+         ./js_single_extracted_functions_snippets.csv
+         ./js_single_extracted_functions_feature_catalog.csv

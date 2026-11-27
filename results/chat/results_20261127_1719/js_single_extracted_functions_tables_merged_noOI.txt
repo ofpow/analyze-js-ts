@@ -1,0 +1,25 @@
+j
+excluded rules ['detect-object-injection']: 3117 raw findings removed
+merged same-location findings: 931 -> 630
+scanned: 17937 (100%)
+clean: 16994 (94.74%)
+defective: 598 (3.33%)
+errors: 345 (1.92%)
+issues: 630
+
+Final Unified CWE Set (without duplicates): 20
+
+Top 10 CWEs by occurrence (across all severities):
+ 1. CWE-327: 262
+ 2. CWE-338: 262
+ 3. CWE-134: Use of Externally-Controlled Format String: 62
+ 4. CWE-79: 59
+ 5. CWE-209: 45
+ 6. CWE-943: 45
+ 7. CWE-185: 33
+ 8. CWE-798: 31
+ 9. CWE-1333: Inefficient Regular Expression Complexity: 30
+10. CWE-918: 27
+WARNING 454
+INFO 62
+ERROR 114
